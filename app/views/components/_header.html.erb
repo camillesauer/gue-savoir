@@ -1,1 +1,44 @@
-_header.html.erb
+<div class="menu">
+  <div class="logo-qq">
+
+  </div>
+
+  <div class="menu-text">
+    <%= link_to 'Accueil', root_path %>
+    <%= link_to 'Trajets', trajets_path %>
+    <%= link_to 'Poètes', poetes_path %>
+    <%= link_to 'Journal', journal_path %>
+    <%= link_to 'Contact', contact_path %>
+    <%= link_to 'Actions', actions_path %>
+
+  </div>
+
+
+<div class="menu-resp">
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Menu
+  </button>
+  <div class="dropdown-menu">
+
+    <li class="dropdown-item"><%= link_to 'Accueil', root_path %></li>
+    <li class="dropdown-item"><%= link_to 'Trajets', trajets_path %></li>
+    <li class="dropdown-item"><%= link_to 'Poètes', poetes_path %></li>
+    <li class="dropdown-item"><%= link_to 'Poètes', journal_path %></li>
+    <li class="dropdown-item"><%= link_to 'Contact', contact_path %></li>
+    <li class="dropdown-item"><%= link_to 'Action', actions_path %></li>
+  </div>
+</div>
+</div>
+
+<% if user_signed_in? %>
+        <div class="lock-item">
+        <%= link_to(image_tag("admin2.png", alt: "Gust - all rights reserved."), destroy_user_session_path, method: :delete) %>
+        </div>
+      <% else %>
+        <div class="lock-item">
+        <%= link_to(image_tag("admin1.png", alt: "Gust - all rights reserved."), new_user_session_path) %>
+        </div>
+  <% end %>
+
+</div>
